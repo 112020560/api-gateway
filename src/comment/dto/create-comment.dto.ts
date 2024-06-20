@@ -1,5 +1,16 @@
+import { ApiProperty } from '@nestjs/swagger';
+import { IsDate, IsNotEmpty, IsString } from 'class-validator';
+
 export class CreateCommentDto {
-    username: string;
-    text: string;
-    created_at: Date;
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  username: string;
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  text: string;
+  @IsDate()
+  @ApiProperty()
+  created_at: Date;
 }

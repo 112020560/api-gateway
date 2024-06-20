@@ -11,12 +11,12 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
         transport: Transport.KAFKA,
         options: {
           client: {
-            clientId: 'app-gateway',// comments
+            clientId: 'comments',// comments
             brokers: ['localhost:9092'],
           },
           producerOnlyMode: true,
           consumer: {
-            groupId: 'kafka-microservices',
+            groupId: 'comments-consumer',
           },
         },
       },

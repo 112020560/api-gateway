@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Version } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Version, ValidationPipe } from '@nestjs/common';
 import { CommentService } from './comment.service';
 import { UpdateCommentDto } from './dto/update-comment.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -10,8 +10,8 @@ export class CommentController {
 
   @Version('1')
   @Post()
-  create(@Body() createCommentDto: UpdateCommentDto) {
-    return this.commentService.create(createCommentDto);
+  create(@Body(ValidationPipe) createCommentDto: UpdateCommentDto) {
+    this.commentService.create(createCommentDto);
   }
 
   // @Get()
